@@ -15,6 +15,8 @@
 #include "Textures/lost.ppm"
 #include "Textures/won.ppm"
 
+#include "Textures/monsterTex.ppm"
+
 #include "Maps/map01.txt"
 
 #ifndef M_PI
@@ -262,11 +264,11 @@ void drawRays2D()
   //glLineWidth(2); glBegin(GL_LINES); glVertex2i(px,py); glVertex2i(rx,ry); glEnd();		//draw ray in 2D map
     
   int ca=FixAng(pa-ra); disH=disH*cos(degToRad(ca));                            //fix fisheye 
-  int lineH = (mapS*640)/(disH);                 								//line height
+  int lineH = (mapS*windowY)/(disH);                 								//line height
   float ty_step=32.0/(float)lineH;
   float ty_off=0;
-  if(lineH>640){ ty_off=(lineH-640)/2.0; lineH=640;}    
-  int lineOff = 320 - (lineH>>1);                                               //line offset
+  if(lineH>windowY){ ty_off=(lineH-windowY)/2.0; lineH=windowY;}    
+  int lineOff = windowY/2 - (lineH>>1);                                               //line offset
   
   depth[r]=disH; //save line depth
   //Draw Textures on wall
@@ -288,12 +290,12 @@ void drawRays2D()
   	ty+=ty_step;
   }
  
-  for(y=lineOff+lineH;y<640;y++)
+  for(y=lineOff+lineH;y<windowY;y++)
   {
 	  //Floor Textures
-	  float dy=y-(640/2.0), deg=degToRad(ra), raFix=cos(degToRad(FixAng(pa-ra)));
-	  tx=px/2 + cos(deg)*318*32/dy/raFix;
-	  ty=py/2 - sin(deg)*318*32/dy/raFix;
+	  float dy=y-(windowY/2.0), deg=degToRad(ra), raFix=cos(degToRad(FixAng(pa-ra)));
+	  tx=px/2 + cos(deg)*((windowY-1)/2)*32/dy/raFix;
+	  ty=py/2 - sin(deg)*((windowY-1)/2)*32/dy/raFix;
 	  int mp=mapFloorArray[(int)(ty/32.0)*mapX+(int)(tx/32.0)]*32*32;
 
 	  int pixel=(((int)(ty)&31)*32 + ((int)(tx)&31))*3+mp*3;
@@ -307,7 +309,7 @@ void drawRays2D()
 	  red  =TexAtlas[pixel+0];
 	  green=TexAtlas[pixel+1];
 	  blue =TexAtlas[pixel+2];
-  	  glPointSize(8);glColor3ub(red,green,blue);glBegin(GL_POINTS);glVertex2i(r*8,640-y);glEnd();
+  	  glPointSize(8);glColor3ub(red,green,blue);glBegin(GL_POINTS);glVertex2i(r*8,windowY-y);glEnd();
 
   }
 
@@ -317,11 +319,11 @@ void drawRays2D()
 
 void drawSky()
 {int x, y;
-	for (y=0;y<320; y++)
+	for (y=0;y<windowY/2; y++)
 	{
-		for (x=0;x<960; x++)
+		for (x=0;x<windowX; x++)
 		{
-			int xo=(int)pa*2-x; if(xo<0){ xo+=960;} xo=xo % 960;
+			int xo=(int)pa*2-x; if(xo<0){ xo+=windowX;} xo=xo % windowX;
 		 	int pixel=(y*120+x)*3;
 	  		int red  =sky[pixel+0];
 	 		int green=sky[pixel+1];
@@ -337,11 +339,11 @@ void screen(int v)
  if(v==1){ T=title;};
  if(v==2){ T=won;};
  if(v==3){ T=lost;};
-	for (y=0;y<640; y++)
+	for (y=0;y<windowY; y++)
 	{
-		for (x=0;x<960; x++)
+		for (x=0;x<windowX; x++)
 		{
-		 	int pixel=(y*960+x)*3;
+		 	int pixel=(y*windowX+x)*3;
 	  		int red  =T[pixel+0]*fade;
 	 		int green=T[pixel+1]*fade;
 	  		int blue =T[pixel+2]*fade;
