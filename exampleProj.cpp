@@ -2,6 +2,7 @@
 
 int main(int argc, char* argv[])
 {
+    //Set window dimensions
     windowX = 960;
     windowY = 640;
     //Call the function in the header file to start. 
