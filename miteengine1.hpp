@@ -59,7 +59,7 @@ void playMidi()
 	int sfont_id = fluid_synth_sfload(synth, "./soundFont.sf2", 1);
 	if(sfont_id == FLUID_FAILED)
 	{
-		int sfontError = MessageBox(
+		int sfontError = MessageBoxA(
 						 NULL,
 				(LPCSTR)"The soundfont couldn't be loaded!\nCheck if you have a file called \"soundFont.sf2\" in the same folder as this file.\nThe game will still run, but without any music. Are you sure you want to continue?\nClick No to quit the program.",
 				(LPCSTR)"Mite Engine 1 Soundfont ERROR",
@@ -79,7 +79,7 @@ void playMidi()
 
 	if(midiLoad == FLUID_FAILED)
 	{
-		int midiError = MessageBox(
+		int midiError = MessageBoxA(
 						 NULL,
 				(LPCSTR)"The midi file couldn't be loaded!\nCheck if you have a file called \"D_MUSIC.mid\" in the same folder as this file.\nThe game will still run, but without any music. Are you sure you want to continue?\nClick No to quit the program.",
 				(LPCSTR)"Mite Engine 1 MIDI ERROR",

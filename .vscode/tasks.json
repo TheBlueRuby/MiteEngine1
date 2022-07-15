@@ -12,6 +12,7 @@
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe",
                 "-pthread",
+				"-mwindows",
 				//Replace C:\\dev with where you installed MSYS2 mingw32 to, but replace a \ with a \\
                 "-I \"C:\\dev\\msys64\\mingw32\\include\"",
 				//Replace C:\\FluidSynth\\ with where you put FluidSynth files but replace a \ with a \\
