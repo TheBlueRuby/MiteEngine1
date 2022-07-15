@@ -1,3 +1,12 @@
+/*
+    Mite Engine 1 Example Project
+    by Mite Productions
+
+    Call miteEngine1Start to start the program
+    Example project is based on
+
+*/
+
 #include "miteengine1.hpp"
 
 int main(int argc, char* argv[])
