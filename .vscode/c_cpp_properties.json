@@ -28,10 +28,10 @@
                 "_UNICODE"
             ],
             "windowsSdkVersion": "10.0.20348.0",
-            "compilerPath": "C:/dev/msys64/mingw64/bin/g++.exe",
+            "compilerPath": "C:/dev/msys64/mingw32/bin/g++.exe",
             "cStandard": "c17",
             "cppStandard": "c++20",
-            "intelliSenseMode": "windows-gcc-x64"
+            "intelliSenseMode": "windows-gcc-x86"
         }
     ],
     "version": 4
