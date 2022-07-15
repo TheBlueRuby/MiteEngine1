@@ -5,11 +5,7 @@
 #include <cstdlib>
 #include <cstring>
 #include <cmath>
-#include <ctime>
 
-#include <random>
-#include <windows.h>
-#include <mmsystem.h>
 #include <fluidsynth.h>
 
 
@@ -501,7 +497,7 @@ void resize (int w,int h)
 	glutReshapeWindow(windowX, windowY);
 }
 
-void miteEngine1Init(int argc, char* argv[], std::string windowTitle)
+void miteEngine1Start(int argc, char* argv[], std::string windowTitle)
 { 
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
