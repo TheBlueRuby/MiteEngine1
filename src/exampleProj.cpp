@@ -32,7 +32,7 @@
 
 */
 
-#include "miteengine1.hpp"
+#include "../include/miteengine1.hpp"
 
 int main(int argc, char* argv[])
 {
