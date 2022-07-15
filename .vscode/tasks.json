@@ -5,35 +5,29 @@
             "type": "cppbuild",
             "label": "C/C++: mingw32-gcc build active file",
 
-			//replace C:/dev/ with wherever you installed msys2 mingw64 to. I installed it to C:/dev but the default may be C:/. Replace \ with /
-            "command": "C:/dev/msys64/mingw64/bin/g++.exe",
+			//replace C:/dev/ with wherever you installed msys2 mingw32 to. I installed it to C:/dev but the default may be C:/. Replace \ with /
+            "command": "C:/dev/msys64/mingw32/bin/g++.exe",
             "args": [
                 "${file}",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe",
-                "-std=c++0x",
-                "-m32",
                 "-pthread",
-                "-mwindows",
-				//Replace C:\\dev with where you installed MSYS2 mingw64 to, but replace a \ with a \\
-                "-I \"C:\\dev\\msys64\\mingw64\\include\"",
-				//Replace C:\\FluidSynth64\\ with where you put FluidSynth files but replace a \ with a \\
-                "-I \"C:\\dev\\FluidSynth64\\include\"",
-				//Replace C:\\dev with where you installed MSYS2 mingw64 to, but replace a \ with a \\
-                "-L\"C:\\dev\\msys64\\mingw64\\lib\"",
-				//Replace C:\\FluidSynth64\\ with where you put FluidSynth files but replace a \ with a \\
-                "-L\"C:\\dev\\FluidSynth64\\lib\"",
-                "-static-libstdc++",
-                "-static-libgcc",
+				//Replace C:\\dev with where you installed MSYS2 mingw32 to, but replace a \ with a \\
+                "-I \"C:\\dev\\msys64\\mingw32\\include\"",
+				//Replace C:\\FluidSynth\\ with where you put FluidSynth files but replace a \ with a \\
+                "-I \"C:\\dev\\FluidSynth\\include\"",
+				//Replace C:\\dev with where you installed MSYS2 mingw32 to, but replace a \ with a \\
+                "-L\"C:\\dev\\msys64\\mingw32\\lib\"",
+				//Replace C:\\FluidSynth\\ with where you put FluidSynth files but replace a \ with a \\
+                "-L\"C:\\dev\\FluidSynth\\lib\"",
                 "-lfreeglut",
                 "-lopengl32",
                 "-lglu32",
                 "-lglut32",
-                "-lwinmm",
                 "-lfluidsynth"
             ],
             "options": {
-                "cwd": "C:/dev/msys64/mingw64/bin"
+                "cwd": "C:/dev/msys64/mingw32/bin"
             },
             "problemMatcher": [
                 "$gcc"

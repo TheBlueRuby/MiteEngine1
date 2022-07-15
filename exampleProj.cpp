@@ -24,13 +24,11 @@
     etc
 
     Required files:
-    MinGW64 (install through MSYS2)
-    Fluidsynth x64 (from fluidsynth.org)
-    MinGW Freeglut (install through MSYS2)
+    MinGW32 (install through MSYS2)
+    Fluidsynth x86/winXP (from fluidsynth.org)
+    MinGW Freeglut (install through MSYS2 using pacman -S mingw-w64-i686-freeglut)
 
     Most GLUT headers are contained within the GL folder.
-
-    
 
 */
 
