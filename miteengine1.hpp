@@ -21,7 +21,7 @@
     #define M_PI 3.14159265358979325406
 #endif
 
-int windowX, int windowY;
+int windowX, windowY;
 
 float frame1, frame2, fps;
 int gameState=0, timer=0;
